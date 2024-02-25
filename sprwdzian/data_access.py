@@ -1,5 +1,5 @@
 
-class UserService:
+class DataAccess:
     def __init__(self):
         self.users = []
         self.next_id = 1
@@ -11,7 +11,7 @@ class UserService:
         for user in self.users:
             if user['id'] == user_id:
                 return user
-        raise UserNotFoundException()
+        raise DataAccess()
 
     def create_user(self, user_data):
         user = {
@@ -31,14 +31,12 @@ class UserService:
                 user.update(user_data)
                 user['age'] = 2024 - user['birthYear']
                 return user
-        raise UserNotFoundException()
+        raise DataAccess()
 
     def delete_user(self, user_id):
         for i, user in enumerate(self.users):
             if user['id'] == user_id:
                 del self.users[i]
                 return
-        raise UserNotFoundException()
-
-class UserNotFoundException(Exception):
-    pass
+        raise DataAccess()
+    
