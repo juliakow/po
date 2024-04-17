@@ -42,3 +42,6 @@ class UserItem(Resource):
 
 api.add_resource(UserList, '/users')
 api.add_resource(UserItem, '/users/<int:user_id>')
+
+
+
